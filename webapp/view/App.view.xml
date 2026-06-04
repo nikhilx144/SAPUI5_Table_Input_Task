@@ -1,0 +1,7 @@
+<mvc:View controllerName="input.in.table.tasks.ui5.ui5inputintablerowtask.controller.App"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <App id="app">
+    </App>
+</mvc:View>

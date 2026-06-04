@@ -1,0 +1,101 @@
+<mvc:View controllerName="input.in.table.tasks.ui5.ui5inputintablerowtask.controller.StudentTable"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:p13n="sap.m.p13n"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+    <Page id="page" title="{i18n>stuTablePageTitle}">
+        <content>
+            <fb:FilterBar id="filterBar" search=".onSearch" header="{i18n>stuTableFilterBarTitle}" class="sapUiSmallMarginBottom sapUIBorderRadius" visible="true">
+                <fb:filterGroupItems>
+                    <fb:FilterGroupItem 
+                        id="stuIdFilterGroupItem"
+                        visibleInFilterBar="true"
+                        name="stuId"
+                        label="Student ID"
+                        groupName="Group1">
+                        <fb:control>
+                            <SearchField id="stuIdSearchField" width="100%"/>
+                        </fb:control>
+                    </fb:FilterGroupItem>
+                    <fb:FilterGroupItem 
+                        id="clgCodeFilterGroupItem"
+                        visibleInFilterBar="true"
+                        name="clgCode"
+                        label="College Code"
+                        groupName="Group1">
+                        <fb:control>
+                            <SearchField id="clgCodeSearchField"/>
+                        </fb:control>
+                    </fb:FilterGroupItem>
+                    <fb:FilterGroupItem 
+                        id="deptCodeFilterGroupItem"
+                        visibleInFilterBar="true"
+                        name="deptCode"
+                        label="Department Code"
+                        groupName="Group1">
+                        <fb:control>
+                            <SearchField id="deptCodeSearchField"/>
+                        </fb:control>
+                    </fb:FilterGroupItem>
+                    <fb:FilterGroupItem 
+                        id="deptNameFilterGroupItem"
+                        visibleInFilterBar="true"
+                        name="deptName"
+                        label="Department Name"
+                        groupName="Group1">
+                        <fb:control>
+                            <SearchField id="deptNameSearchField"/>
+                        </fb:control>
+                    </fb:FilterGroupItem>
+                </fb:filterGroupItems>
+            </fb:FilterBar>
+
+            <Table 
+                id="stuTable" 
+                width="auto"
+                items="{
+                    path: 'stuDetails>/Table',
+                    templateShareable: false
+                }">
+                <headerToolbar>
+                    <Toolbar id="tableHeaderToolbar">
+                        <Title id="stuTableTitle" text="{i18n>stuTableTitle}"/>
+                        <ToolbarSpacer id="toolBarSpacer" />
+                        <Button id="addRowButton" icon="sap-icon://add" text="Add Row" press=".onAddRow"/>
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <!-- <Column id="statusColumn" app:p13nKey="status_col">
+                        <Text id="statusColHeader" text="Status"/>
+                    </Column> -->
+                    
+                    <Column id="stuIdColumn" app:p13nKey="stuId_col">
+                        <Text id="stuIdColHeader" text="Student ID"/>
+                    </Column>
+
+                    <Column id="clgCodeColumn" app:p13nKey="clgCode_col">
+                        <Text id="clgCodeColHeader" text="College Code"/>
+                    </Column>
+                    
+                    <Column id="deptCodeColumn" app:p13nKey="deptCode_col">
+                        <Text id="deptCodeColHeader" text="Department Code"/>
+                    </Column>
+
+                    <Column id="deptNameColumn" app:p13nKey="deptName_col">
+                        <Text id="deptNameColHeader" text="Department Name"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="columnListItem" press=".onRowPress" type="Navigation">
+                        <cells>
+                            <Text id="stuIdCell" text="{userDetails>stuId}"/>
+                            <Text id="clgCodeCell" text="{userDetails>clgCode}"/>
+                            <Text id="deptCodeCell" text="{userDetails>deptCode}"/>
+                            <Text id="deptNameCell" text="{userDetails>deptName}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

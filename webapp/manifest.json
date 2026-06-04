@@ -1,0 +1,98 @@
+{
+  "_version": "1.85.0",
+  "sap.app": {
+    "id": "input.in.table.tasks.ui5.ui5inputintablerowtask",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.25.0",
+      "toolsId": "99f69d03-6051-4155-8845-aaf5c6d32434"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.148.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "input.in.table.tasks.ui5.ui5inputintablerowtask.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "input.in.table.tasks.ui5.ui5inputintablerowtask.view",
+        "async": true,
+        "viewPath": "input.in.table.tasks.ui5.ui5inputintablerowtask.view"
+      },
+      "routes": [
+        {
+          "name": "RouteStudentTable",
+          "pattern": ":?query:",
+          "target": [
+            "TargetStudentTable"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetStudentTable": {
+          "id": "StudentTable",
+          "name": "StudentTable"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "input.in.table.tasks.ui5.ui5inputintablerowtask.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}
