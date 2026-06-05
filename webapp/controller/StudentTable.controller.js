@@ -1,6 +1,7 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
-], (Controller) => {
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/core/Fragment"
+], (Controller, Fragment) => {
     "use strict";
 
     return Controller.extend("input.in.table.tasks.ui5.ui5inputintablerowtask.controller.StudentTable", {
@@ -72,6 +73,42 @@ sap.ui.define([
             console.log(this.oModel);
             this.addRowCounter = 0;
             this.lastEntryIndex = -1;
-        }
+        },
+
+        onValueHelpRequested() {
+            const view = this.getView();
+            if (!this._oVHD) {
+                this._oVHD = Fragment.load({
+                    name: "input.in.table.tasks.ui5.ui5inputintablerowtask.view.fragments.ValueHelpDialog",
+                    controller: this
+                }).
+                then(function (oDialog) {
+                    // this.oView.addDependent(oDialog);
+                    this.oView.addDependent(oDialog);
+                    return oDialog;
+                });
+            }
+
+            this._oVHD.then(function (oDialog) {
+                oDialog.open();
+            });
+        },
+
+        onValueHelpDialogOk(event) {
+            const oSelectedItem = event.getParameter("selectedItems")[0];
+            if (oSelectedItem) {
+                const oInput = this.oView.byId("clgCodeInput");
+                oInput.setValue(oSelectedItem.getTitle());
+            }
+        },
+
+        onValueHelpDialogCancel() {
+            console.log(this._oVHD);
+            this._oVHD.close();
+        },
+
+        // onValueHelpDialogAfterClose() {
+        //     this._oVHD.destroy();
+        // }
     });
 });

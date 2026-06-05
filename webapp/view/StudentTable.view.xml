@@ -89,10 +89,30 @@
                 <items>
                     <ColumnListItem id="columnListItem" press=".onRowPress" type="Navigation">
                         <cells>
-                            <Input id="stuIdCell" value="{stuDetails>stuId}" editable="{stuDetails>editableRow}"/>
-                            <Input id="clgCodeCell" value="{stuDetails>clgCode}" editable="{stuDetails>editableRow}"/>
-                            <Input id="deptCodeCell" value="{stuDetails>deptCode}" editable="{stuDetails>editableRow}"/>
-                            <Input id="deptNameCell" value="{stuDetails>deptName}" editable="{stuDetails>editableRow}"/>
+                            <Input 
+                                id="stuIdCell" 
+                                value="{stuDetails>stuId}" 
+                                editable="{stuDetails>editableRow}"
+                                valueHelpRequest=".onValueHelpRequested"
+                                showValueHelp="true" />
+                            <Input 
+                                id="clgCodeCell" 
+                                value="{stuDetails>clgCode}" 
+                                editable="{stuDetails>editableRow}"
+                                valueHelpRequest=".onValueHelpRequested"
+                                showValueHelp="true" />
+                            <Input 
+                                id="deptCodeCell" 
+                                value="{stuDetails>deptCode}" 
+                                editable="{stuDetails>editableRow}"
+                                valueHelpRequest=".onValueHelpRequested"
+                                showValueHelp="true" />
+                            <Input 
+                                id="deptNameCell" 
+                                value="{stuDetails>deptName}" 
+                                editable="{stuDetails>editableRow}"
+                                valueHelpRequest=".onValueHelpRequested"
+                                showValueHelp="true" />
                         </cells>
                     </ColumnListItem>
                 </items>
