@@ -76,15 +76,16 @@ sap.ui.define([
         },
 
         onValueHelpRequested() {
+            const _this = this;
             const view = this.getView();
-            if (!this._oVHD) {
-                this._oVHD = Fragment.load({
+            if (!_this._oVHD) {
+                _this._oVHD = Fragment.load({
                     name: "input.in.table.tasks.ui5.ui5inputintablerowtask.view.fragments.ValueHelpDialog",
-                    controller: this
                 }).
                 then(function (oDialog) {
                     // this.oView.addDependent(oDialog);
-                    this.oView.addDependent(oDialog);
+                    _this.getView().addDependent(oDialog);
+                    // view.addDependent(oDialog);
                     return oDialog;
                 });
             }
@@ -103,12 +104,13 @@ sap.ui.define([
         },
 
         onValueHelpDialogCancel() {
-            console.log(this._oVHD);
-            this._oVHD.close();
+            const _this = this;
+            console.log(_this._oVHD);
+            _this._oVHD.close();
         },
 
         // onValueHelpDialogAfterClose() {
-        //     this._oVHD.destroy();
+        //     _this._oVHD.destroy();
         // }
     });
 });
