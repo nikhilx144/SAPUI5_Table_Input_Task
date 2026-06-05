@@ -1,10 +1,9 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/core/Fragment",
-    "sap/ui/table/Column",
-    "sap/m/Label",
-    "sap/m/Text"
-], (Controller, Fragment, UIColumn, Label, Text) => {
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator"
+], (Controller, Fragment, Filter, FilterOperator) => {
     "use strict";
 
     return Controller.extend("input.in.table.tasks.ui5.ui5inputintablerowtask.controller.StudentTable", {
@@ -111,7 +110,13 @@ sap.ui.define([
                     return oDialog;
                 });
             }
-                
+            
+            // filter the items in the value help dialog for department code based on the selected college code in the value help dialog for college code
+            this._oSelectDialogForDeptCode.then((oDialog) => {
+                const oBinding = oDialog.getBinding("items");
+                oBinding.filter(new Filter("deptCode", FilterOperator.Contains, this.selectedClgCode));
+            });
+
             this._oSelectDialogForDeptCode.then((oDialog) => {
                 oDialog.open();
             });
