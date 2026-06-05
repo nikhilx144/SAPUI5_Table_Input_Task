@@ -1,31 +1,43 @@
-{
+{   
     "Table": [
         {
             "stuId": "S101",
-            "clgCode": "C001",
-            "deptCode": "D001",
+            "clgCode": "C1",
+            "deptCode": "C1-D1",
             "deptName": "Computer Science",
             "editableRow": false
         },
         {
             "stuId": "S102",
-            "clgCode": "C002",
-            "deptCode": "D002",
+            "clgCode": "C1",
+            "deptCode": "C1-D2",
             "deptName": "Mechanical Engineering",
             "editableRow": false
         },
         {
             "stuId": "S103",
-            "clgCode": "C001",
-            "deptCode": "D003",
+            "clgCode": "C2",
+            "deptCode": "C2-D1",
             "deptName": "Electrical Engineering",
+            "editableRow": false
+        },
+        {
+            "stuId": "S104",
+            "clgCode": "C2",
+            "deptCode": "C2-D2",
+            "deptName": "Civil Engineering",
             "editableRow": false
         }
     ],
 
     "editable": false,
     "selectedStudentID": null,
-    "selectedStudentData": {},
+    "selectedStudentData": {
+        "stuId": "",
+        "clgCode": "",
+        "deptCode": "",
+        "deptName": ""
+    },
     "newEntry": {
         "stuId": "",
         "clgCode": "",

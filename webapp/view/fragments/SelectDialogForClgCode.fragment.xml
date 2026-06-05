@@ -1,0 +1,17 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+
+    <SelectDialog
+        id="selectDialogForClgCode"
+        title="Select College Code"
+        confirm=".onSelectDialogForClgCodeConfirm"
+        cancel=".onSelectDialogForClgCodeCancel"
+        items="{
+            path: '/Table'
+        }">
+        <StandardListItem
+            id="clgCodeListItem"
+            title="{clgCode}"/>
+    </SelectDialog>
+</core:FragmentDefinition>

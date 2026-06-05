@@ -1,0 +1,18 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+
+    <SelectDialog
+        id="selectDialogForDeptCode"
+        title="Select Department Code"
+        confirm=".onSelectDialogForDeptCodeConfirm"
+        cancel=".onSelectDialogForDeptCodeCancel"
+        items="{
+            path: '/Table'
+        }">
+        <StandardListItem
+            id="deptCodeListItem"
+            title="{deptCode}"
+            description="{deptName}"/>
+    </SelectDialog>
+</core:FragmentDefinition>
