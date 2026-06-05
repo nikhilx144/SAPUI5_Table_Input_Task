@@ -1,0 +1,35 @@
+{
+    "Table": [
+        {
+            "stuId": "S101",
+            "clgCode": "C001",
+            "deptCode": "D001",
+            "deptName": "Computer Science",
+            "editableRow": false
+        },
+        {
+            "stuId": "S102",
+            "clgCode": "C002",
+            "deptCode": "D002",
+            "deptName": "Mechanical Engineering",
+            "editableRow": false
+        },
+        {
+            "stuId": "S103",
+            "clgCode": "C001",
+            "deptCode": "D003",
+            "deptName": "Electrical Engineering",
+            "editableRow": false
+        }
+    ],
+
+    "editable": false,
+    "selectedStudentID": null,
+    "selectedStudentData": {},
+    "newEntry": {
+        "stuId": "",
+        "clgCode": "",
+        "deptCode": "",
+        "deptName": ""
+    }
+}

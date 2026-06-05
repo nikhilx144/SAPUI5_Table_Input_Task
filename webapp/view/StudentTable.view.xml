@@ -1,6 +1,7 @@
 <mvc:View controllerName="input.in.table.tasks.ui5.ui5inputintablerowtask.controller.StudentTable"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
+    xmlns:fb="sap.ui.comp.filterbar"
     xmlns:p13n="sap.m.p13n"
     xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
     <Page id="page" title="{i18n>stuTablePageTitle}">
@@ -14,7 +15,8 @@
                         label="Student ID"
                         groupName="Group1">
                         <fb:control>
-                            <SearchField id="stuIdSearchField" width="100%"/>
+                            <!-- <SearchField id="stuIdSearchField" width="100%"/> -->
+                            <Input id="stuIdSearchField" width="100%"/>
                         </fb:control>
                     </fb:FilterGroupItem>
                     <fb:FilterGroupItem 
@@ -24,7 +26,8 @@
                         label="College Code"
                         groupName="Group1">
                         <fb:control>
-                            <SearchField id="clgCodeSearchField"/>
+                            <!-- <SearchField id="clgCodeSearchField"/> -->
+                            <Input id="clgCodeSearchField"/>
                         </fb:control>
                     </fb:FilterGroupItem>
                     <fb:FilterGroupItem 
@@ -34,7 +37,8 @@
                         label="Department Code"
                         groupName="Group1">
                         <fb:control>
-                            <SearchField id="deptCodeSearchField"/>
+                            <!-- <SearchField id="deptCodeSearchField"/> -->
+                            <Input id="deptCodeSearchField"/>
                         </fb:control>
                     </fb:FilterGroupItem>
                     <fb:FilterGroupItem 
@@ -44,7 +48,8 @@
                         label="Department Name"
                         groupName="Group1">
                         <fb:control>
-                            <SearchField id="deptNameSearchField"/>
+                            <!-- <SearchField id="deptNameSearchField"/> -->
+                            <Input id="deptNameSearchField"/>
                         </fb:control>
                     </fb:FilterGroupItem>
                 </fb:filterGroupItems>
@@ -65,10 +70,6 @@
                     </Toolbar>
                 </headerToolbar>
                 <columns>
-                    <!-- <Column id="statusColumn" app:p13nKey="status_col">
-                        <Text id="statusColHeader" text="Status"/>
-                    </Column> -->
-                    
                     <Column id="stuIdColumn" app:p13nKey="stuId_col">
                         <Text id="stuIdColHeader" text="Student ID"/>
                     </Column>
@@ -88,14 +89,16 @@
                 <items>
                     <ColumnListItem id="columnListItem" press=".onRowPress" type="Navigation">
                         <cells>
-                            <Text id="stuIdCell" text="{userDetails>stuId}"/>
-                            <Text id="clgCodeCell" text="{userDetails>clgCode}"/>
-                            <Text id="deptCodeCell" text="{userDetails>deptCode}"/>
-                            <Text id="deptNameCell" text="{userDetails>deptName}"/>
+                            <Input id="stuIdCell" value="{stuDetails>stuId}" editable="{stuDetails>editableRow}"/>
+                            <Input id="clgCodeCell" value="{stuDetails>clgCode}" editable="{stuDetails>editableRow}"/>
+                            <Input id="deptCodeCell" value="{stuDetails>deptCode}" editable="{stuDetails>editableRow}"/>
+                            <Input id="deptNameCell" value="{stuDetails>deptName}" editable="{stuDetails>editableRow}"/>
                         </cells>
                     </ColumnListItem>
                 </items>
             </Table>
+            <Button id="submitBtn" text="Submit" press=".onSubmit" class="sapUiTinyMarginTop" visible="false"/>
+            <Button id="cancelBtn" text="Cancel" press=".onCancel" class="sapUiTinyMarginTop" visible="false"/>
         </content>
     </Page>
 </mvc:View>

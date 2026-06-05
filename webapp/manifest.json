@@ -51,6 +51,10 @@
         "settings": {
           "bundleName": "input.in.table.tasks.ui5.ui5inputintablerowtask.i18n.i18n"
         }
+      },
+      "stuDetails": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/stuTableData.json"
       }
     },
     "resources": {
