@@ -1,7 +1,13 @@
-<mvc:View controllerName="input.in.table.tasks.ui5.ui5inputintablerowtask.controller.App"
+<mvc:View 
+    controllerName="input.in.table.tasks.ui5.ui5inputintablerowtask.controller.App"
     displayBlock="true"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    <App id="app">
-    </App>
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Shell 
+        id="shell"
+        headerRightText="{i18n>companyName}">
+        <App id="app" homeIcon="sap-icon://home" class="myApp">
+        </App>
+    </Shell>
 </mvc:View>

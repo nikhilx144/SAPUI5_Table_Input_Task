@@ -8,7 +8,7 @@
         confirm=".onSelectDialogForClgCodeConfirm"
         cancel=".onSelectDialogForClgCodeCancel"
         items="{
-            path: '/Table'
+            path: '/uniqueClgCodes'
         }">
         <StandardListItem
             id="clgCodeListItem"

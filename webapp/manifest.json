@@ -78,10 +78,17 @@
       },
       "routes": [
         {
-          "name": "RouteStudentTable",
           "pattern": ":?query:",
+          "name": "RouteStudentTable",
           "target": [
             "TargetStudentTable"
+          ]
+        },
+        {
+          "pattern": "object/{stuId}",
+          "name": "RouteObjectPage",
+          "target": [
+            "TargetObjectPage"
           ]
         }
       ],
@@ -89,6 +96,10 @@
         "TargetStudentTable": {
           "id": "StudentTable",
           "name": "StudentTable"
+        },
+        "TargetObjectPage": {
+          "id": "ObjectPage",
+          "name": "ObjectPage"
         }
       }
     },

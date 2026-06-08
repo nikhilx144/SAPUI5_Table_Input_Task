@@ -5,28 +5,64 @@
             "clgCode": "C1",
             "deptCode": "C1-D1",
             "deptName": "Computer Science",
-            "editableRow": false
+            "editableRow": false,
+            "entryNumber": 1,
+            "deptEditable": false
         },
         {
             "stuId": "S102",
             "clgCode": "C1",
             "deptCode": "C1-D2",
             "deptName": "Mechanical Engineering",
-            "editableRow": false
+            "editableRow": false,
+            "entryNumber": 2,
+            "deptEditable": false
         },
         {
             "stuId": "S103",
             "clgCode": "C2",
             "deptCode": "C2-D1",
             "deptName": "Electrical Engineering",
-            "editableRow": false
+            "editableRow": false,
+            "entryNumber": 3,
+            "deptEditable": false
         },
         {
             "stuId": "S104",
             "clgCode": "C2",
             "deptCode": "C2-D2",
             "deptName": "Civil Engineering",
-            "editableRow": false
+            "editableRow": false,
+            "entryNumber": 4,
+            "deptEditable": false
+        }
+    ],
+
+    "uniqueClgCodes": [
+        {
+            "clgCode": "C1"
+        },
+        {
+            "clgCode": "C2"
+        }
+    ],
+
+    "uniqueDeptCodes": [
+        {
+            "deptCode": "C1-D1",
+            "deptName": "Computer Science"
+        },
+        {
+             "deptCode": "C1-D2",
+            "deptName": "Mechanical Engineering"
+        },
+        {
+             "deptCode": "C2-D1",
+            "deptName": "Electrical Engineering"
+        },
+        {
+             "deptCode": "C2-D2",
+            "deptName": "Civil Engineering"
         }
     ],
 

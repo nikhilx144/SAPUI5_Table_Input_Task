@@ -8,7 +8,7 @@
         confirm=".onSelectDialogForDeptCodeConfirm"
         cancel=".onSelectDialogForDeptCodeCancel"
         items="{
-            path: '/Table'
+            path: '/uniqueDeptCodes'
         }">
         <StandardListItem
             id="deptCodeListItem"

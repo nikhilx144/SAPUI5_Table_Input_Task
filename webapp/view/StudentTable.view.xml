@@ -1,10 +1,12 @@
-<mvc:View controllerName="input.in.table.tasks.ui5.ui5inputintablerowtask.controller.StudentTable"
+<mvc:View 
+    controllerName="input.in.table.tasks.ui5.ui5inputintablerowtask.controller.StudentTable"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     xmlns:fb="sap.ui.comp.filterbar"
     xmlns:p13n="sap.m.p13n"
-    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
-    <Page id="page" title="{i18n>stuTablePageTitle}">
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns:core="sap.ui.core">
+    <Page id="page">
         <content>
             <fb:FilterBar id="filterBar" search=".onSearch" header="{i18n>stuTableFilterBarTitle}" class="sapUiSmallMarginBottom sapUIBorderRadius" visible="true">
                 <fb:filterGroupItems>
@@ -102,7 +104,7 @@
                             <Input 
                                 id="deptCodeCell" 
                                 value="{stuDetails>deptCode}" 
-                                editable="{stuDetails>editableRow}"
+                                editable="{stuDetails>deptEditable}"
                                 valueHelpRequest=".onSelectDialogForDeptCodeRequested"
                                 showValueHelp="true" />
                             <Text

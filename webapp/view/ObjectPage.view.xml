@@ -1,0 +1,62 @@
+<mvc:View 
+    controllerName="input.in.table.tasks.ui5.ui5inputintablerowtask.controller.ObjectPage"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:form="sap.ui.layout.form"
+    xmlns:layout="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:p13n="sap.m.p13n"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+    <Page id="formPage" title="{i18n>objectPageTitle}" showNavButton="true" navButtonPress=".onNavBack">
+        <customHeader>
+            <Bar id="headerBar">
+                <contentLeft>
+                    <Button id="backButton" icon="sap-icon://nav-back" press=".onBack"/>
+                </contentLeft>
+                <contentMiddle>
+                    <Text id="headerText" text="{stuTableData>/selectedObject/stuId}"/>
+                </contentMiddle>
+                <contentRight>
+                    <Button id="editButton" text="Edit" press=".onEdit"/>
+                    <Button id="cancelButton" text="Cancel" press=".onCancel" visible="false"/>
+                    <Button id="saveButton" text="Save" press=".onSave" visible="false"/>
+                </contentRight>
+            </Bar>
+        </customHeader>
+        <form:SimpleForm id="form">
+            <form:content>
+                <!-- Will toggle visibility of id input field on table row press. visible=false for add row -->
+                <Label id="id2Label" text="Student ID"/>
+                <Input id="id2Input" value="{stuDetails>/selectedObjectData/stuId}" editable="false" visible="true"/>
+
+                <Label id="nameLabel" text="Name"/>
+                <Input id="nameInput" value="{userDetails>/selectedObjectData/fullName}" editable="{userDetails>/editable}" />
+                
+                <Label id="phnoLabel" text="Phone Number"/>
+                <Input id="phnoInput" value="{userDetails>/selectedObjectData/phno}" editable="{userDetails>/editable}"/>
+                
+                <Label id="emailLabel" text="Email"/>
+                <Input id="emailInput" value="{userDetails>/selectedObjectData/email}" editable="{userDetails>/editable}"/>
+
+                <Label id="dobLabel" text="Date of Birth"/>
+                <DatePicker 
+                    id="dob" 
+                    class="sapUi-Std-PaddingM"
+                    placeholder="Enter your DOB" 
+                    valueFormat="yyyy-MM-dd"
+                    editable="{userDetails>/editable}"
+                    value="{userDetails>/selectedObjectData/dob}"/>
+
+                <Label id="passOrFailLabel" text="Pass/Fail"/>
+                <ComboBox id="passOrFailInput" editable="{userDetails>/editable}" selectedKey="{userDetails>/selectedObjectData/passOrFail}">
+                    <items>
+                        <core:Item id="passOption" key="Pass" text="Pass"/>
+                        <core:Item id="failOption" key="Fail" text="Fail"/>
+                    </items>
+                </ComboBox>
+            </form:content>
+        </form:SimpleForm>
+        <!-- Toggle visible to false if the user clicks on a table row -->
+        <Button id="submitButton" text="Submit" press="onSubmit" visible="false"/>
+    </Page>
+</mvc:View>
