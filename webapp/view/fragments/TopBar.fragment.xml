@@ -1,51 +1,12 @@
-<core:FragmentDefinition xmlns:tnt="sap.tnt"
+<core:FragmentDefinition 
+	xmlns:tnt="sap.tnt"
 	xmlns="sap.m"
 	xmlns:core="sap.ui.core">
-    <!-- <Bar id="topBar">
-        <contentLeft>
-            <ImageContent 
-                id="companyLogo" 
-                class="sapMImageContent" 
-                src="sap-icon://area-chart"
-                description="{i18n>companyName}"/>
-        </contentLeft>
-        <contentMiddle>
-            <Title id="companyNameTitle" text="{i18n>companyName}"/>
-        </contentMiddle>
-        <contentRight>
-            <Text id="companyOfficeBranch" text="{i18n>companyOfficeBranch}"/>
-        </contentRight>
-    </Bar> -->
-    <tnt:ToolHeader 
+    <tnt:ToolHeader
         id="toolHeaderTopBar"
-        class="toolHeaderTopBar sapUiTinyMargin sapUiLargeMarginTop">
-        <Image 
-            id="companyLogo"
-            src="test-resources/sap/tnt/images/SAP_Logo.png" decorative="false" press=".onLogoPressed" tooltip="SAP Logo" width="60px" height="30px">
-				<layoutData>
-					<OverflowToolbarLayoutData id="companyLogoLayoutData" priority="NeverOverflow"/>
-				</layoutData>
-			</Image>
+        class="toolHeaderTopBar">
 			<ToolbarSpacer id="toolbarSpacer1" />
-			<Title 
-                id="companyNameTitle"
-                text="{i18n>companyName}" 
-                wrapping="false">
-				<layoutData>
-					<OverflowToolbarLayoutData 
-                        id="productNameLayoutData" 
-                        priority="Disappear"/>
-				</layoutData>
-			</Title>
+			<Title id="companyNameTitle" text="{i18n>companyName}" />
 			<ToolbarSpacer id="toolbarSpacer2" />
-			<Avatar 
-                id="avatarProfile"
-                src="test-resources/sap/tnt/images/Woman_avatar_01.png" 
-                displaySize="XS"
-                tooltip="Profile">
-				<layoutData>
-					<OverflowToolbarLayoutData id="avatarLayoutData" priority="NeverOverflow"/>
-				</layoutData>
-			</Avatar>
     </tnt:ToolHeader>
 </core:FragmentDefinition>

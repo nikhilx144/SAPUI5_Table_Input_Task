@@ -1,6 +1,7 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-], (Controller) => {
+    "sap/ui/core/Fragment"
+], (Controller, Fragment) => {
     "use strict";
 
     return Controller.extend("input.in.table.tasks.ui5.ui5inputintablerowtask.controller.StudentTable", {
@@ -12,15 +13,18 @@ sap.ui.define([
         },
 
         onObjectRouteMatched(event) {
-            const stuId = event.getParameter("arguments").selectedUserID1;
+            const eventArgs = event.getParameter("arguments");
+            const stuId = event.getParameter("arguments").stuId;
+            console.log(eventArgs);
+            console.log(stuId);
             const allStudents = this.oModel.getProperty("/Table");
+            console.log(allStudents);
             let matchedStudent;
             allStudents.forEach(stu => {
                 if (stu.stuId === Number(stuId)) matchedStudent = stu;
             }); 
-            this.oModel.setProperty("/selectedObjectData", matchedStudent);
+            this.oModel.setProperty("/selectedStudentData", matchedStudent);
             this.oModel.setProperty("/editable", false);
-            this.oView.byId("submitButton").setVisible(false);
             this.oView.byId("editButton").setVisible(true);
         },
 
@@ -37,17 +41,18 @@ sap.ui.define([
         },
         
         onCancel() {
-            const router = sap.ui.core.UIComponent.getRouterFor(this);
+            // const router = sap.ui.core.UIComponent.getRouterFor(this);
             this.oView.byId('cancelButton').setVisible(false);
             this.oView.byId('saveButton').setVisible(false);
             this.oModel.setProperty("/editable", false);
-            router.navTo("RouteHome");
+            this._router.navTo("RouteStudentTable");
         },
 
         onSave() {
-            const router = sap.ui.core.UIComponent.getRouterFor(this);
+            // const router = sap.ui.core.UIComponent.getRouterFor(this);
             this.oModel.setProperty("/editable", false);
-            const updatedStuData = this.oModel.getProperty("/selectedObjectData");
+            const updatedStuData = this.oModel.getProperty("/selectedStudentData");
+            console.log(updatedStuData);
             const updatedStuId = updatedStuData.stuId;
             const allStudents = this.oModel.getProperty("/Table");
             allStudents.forEach(student => { 
@@ -55,31 +60,29 @@ sap.ui.define([
                     Object.assign(student, updatedStuData);
                 } 
             });
+            this.oModel.setProperty('/Table', allStudents);
             this.oView.byId('saveButton').setVisible(false);
-            router.navTo("RouteHome");
+            this.oView.byId('cancelButton').setVisible(false);
+            this._router.navTo("RouteStudentTable");
         },
 
-        onSubmit() {
-            const router = sap.ui.core.UIComponent.getRouterFor(this);
-            const newStuData = this.oView.getModel('stuDetails').getProperty("/selectedObjectData");
-            const allStudents = this.oView.getModel('stuDetails').getProperty("/Table");
-            allStudents.forEach(student => {
-                if (student.stuId === newStuData.stuId) {
-                    alert("Student with same ID already exists. Please change the ID and try again.");
-                    return;
-                } 
-            });
-            allStudents.push(newStuData);
-            this.oView.getModel('stuDetails').setProperty("/Table", allStudents);
-            this.oView.byId('submitButton').setVisible(false);
+        // onSubmit() {
+        //     const router = sap.ui.core.UIComponent.getRouterFor(this);
+        //     const newStuData = this.oView.getModel('stuDetails').getProperty("/selectedStudentData");
+        //     const allStudents = this.oView.getModel('stuDetails').getProperty("/Table");
+        //     allStudents.forEach(student => {
+        //         if (student.stuId === newStuData.stuId) {
+        //             alert("Student with same ID already exists. Please change the ID and try again.");
+        //             return;
+        //         } 
+        //     });
+        //     allStudents.push(newStuData);
+        //     this.oView.getModel('stuDetails').setProperty("/Table", allStudents);
+        //     this.oView.byId('submitButton').setVisible(false);
 
-            console.log(this.oView.getModel('stuDetails').getData());
+        //     console.log(this.oView.getModel('stuDetails').getData());
 
-            router.navTo("RouteHome");
-        },
-
-        onNavBack() {
-            this.getOwnerComponent().getRouter().navTo("RouteStudentTable");
-        },
+        //     router.navTo("RouteHome");
+        // },
     });
 });

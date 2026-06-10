@@ -1,5 +1,13 @@
 /* Enter your custom styles here */
 
-html[dir="ltr"] .toolHeaderTopBar {
-    background-color: red;
+/* .toolHeaderTopBar  {
+    background-color: aquamarine; 
+} */
+
+/* #toolHeaderTopBar  {
+    background-color: aquamarine; 
+} */
+ 
+#application-app-preview-component---StudentTable--toolHeaderTopBar  {
+    background-color: aquamarine;
 }

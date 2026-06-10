@@ -6,9 +6,10 @@
     xmlns:p13n="sap.m.p13n"
     xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
     xmlns:core="sap.ui.core">
-    <Page id="page">
+    <Page id="page" enableScrolling="true" showHeader="false" showSubHeader="false">
+        <core:Fragment fragmentName="input.in.table.tasks.ui5.ui5inputintablerowtask.view.fragments.TopBar" type="XML"/>
         <content>
-            <fb:FilterBar id="filterBar" search=".onSearch" header="{i18n>stuTableFilterBarTitle}" class="sapUiSmallMarginBottom sapUIBorderRadius" visible="true">
+            <fb:FilterBar id="filterBar" search=".onSearch" header="{i18n>stuTableFilterBarTitle}" visible="true">
                 <fb:filterGroupItems>
                     <fb:FilterGroupItem 
                         id="stuIdFilterGroupItem"
@@ -115,8 +116,8 @@
                     </ColumnListItem>
                 </items>
             </Table>
-            <Button id="submitBtn" text="Submit" press=".onSubmit" class="sapUiTinyMarginTop" visible="false"/>
-            <Button id="cancelBtn" text="Cancel" press=".onCancel" class="sapUiTinyMarginTop" visible="false"/>
+            <Button id="submitBtn" text="Submit" press=".onSubmit" class="sapUiTinyMarginTop sapUiTinyMarginRight" visible="false"/>
+            <Button id="cancelBtn" text="Cancel" press=".onCancel" class="sapUiTinyMarginTop  sapUiTinyMarginLeft" visible="false"/>
         </content>
     </Page>
 </mvc:View>

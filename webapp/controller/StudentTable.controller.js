@@ -8,16 +8,6 @@ sap.ui.define([
 
     return Controller.extend("input.in.table.tasks.ui5.ui5inputintablerowtask.controller.StudentTable", {
         onInit() {
-            // add the stricky header fragment to the top of the view
-            Fragment.load({
-                name: "input.in.table.tasks.ui5.ui5inputintablerowtask.view.fragments.StickyHeader",
-                controller: this
-            }).then((oFragment) => {
-                this.oView.addDependent(oFragment);
-                // add the fragment as the header of this view's page tag
-                this.oView.byId("page").setHeaderContent(oFragment);
-            });
-
             // assign the model and view to the 'this' of controller for DRY code
             this.oModel = this.getOwnerComponent().getModel("stuDetails");
             this.oView = this.getView();
@@ -27,6 +17,7 @@ sap.ui.define([
             this.lastEntryIndex = -1;
             // keep track of the record serial number
             this.entryNumberStartValue = this.oModel.getProperty("/Table").length;
+            console.log(this.oView.byId('toolHeaderTopBar').getMetadata());
         },
 
         // on click of add row button, set newEntry prop with empty values and editableRow as true
@@ -93,7 +84,9 @@ sap.ui.define([
 
         onRowPress(event) {
             const selectedStuId = event.getSource().getBindingContext("stuDetails").getProperty("stuId");
-            this.getOwnerComponent().getRouter().navTo("RouteObjectPage", {
+            console.log(selectedStuId);
+            this.getOwnerComponent().getRouter().navTo(
+                "RouteObjectPage", {
                 stuId: selectedStuId
             });
         },

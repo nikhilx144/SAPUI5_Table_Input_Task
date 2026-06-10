@@ -4,10 +4,7 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     xmlns:core="sap.ui.core">
-    <Shell 
-        id="shell"
-        headerRightText="{i18n>companyName}">
-        <App id="app" homeIcon="sap-icon://home" class="myApp">
-        </App>
-    </Shell>
+    <!-- <Shell id="shell"> -->
+        <App id="app" class="myApp" />
+    <!-- </Shell> -->
 </mvc:View>
